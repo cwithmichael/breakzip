@@ -13,7 +13,7 @@ with open(dictionary, 'r') as dic:
 		pwd = line.strip('\n')
 		print("Trying: ", pwd)
 		try:
-			with love.open(info, 'r', pwd=pwd.encode()) as myzip:
+			with love.open(info, 'r', pwd=pwd.strip().encode('utf-8', 'ignore')) as myzip:
 				try:
 					head = myzip.__next__()
 					print(head)
