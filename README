@@ -4,6 +4,9 @@ BreakZip
 
 Copyright (c) 2020 Michael Terrell <cwithmichael@gmail.com>
 
+.. image:: https://travis-ci.org/cwithmichael/breakzip.svg?branch=master
+    :target: https://travis-ci.org/cwithmichael/breakzip
+
 Motivation
 ==========
 This program was created for a very specfic problem I had. I had a large encrypted zip file that I lost/forgot the password for. Using traditional bruteforce methods resulted in a lot of false positives.
