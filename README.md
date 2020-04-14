@@ -11,11 +11,15 @@ More info about Python's ZipFile lib can be found here:
 https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.open
 
 ### Installation Instructions
+Create a virtualenv and activate it
+`python3 -m venv break_venv`
+`source break_venv/bin/activate`
+
+Run pip install
 `pip install .`
 
-If you're using PyEnv like me, then be sure to rehash before trying to run the program:
-`pyenv rehash`
-
+If you want to run the tests, then you'll have to install `pytest`
+`pip install pytest`
 
 ### Usage
 `breakzip <zipfile_name> <known_file_extension>`
