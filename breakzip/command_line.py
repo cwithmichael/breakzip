@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+from zipfile import ZipFile
 from . import breakzip
 
 def main():
@@ -9,7 +10,7 @@ def main():
     except IndexError:
         raise SystemExit(f"Usage: {sys.argv[0]} <zip_filename> <file_ext>")
 
-    enc_zip = breakzip.EncryptedZipFile(file_name)
+    enc_zip = breakzip.ZipFile(file_name)
     file_sig = breakzip.FileSignature().get_file_sig(file_ext)
     if not file_sig: 
         print(f"Unknown file extension/type: {file_ext} ")
