@@ -10,9 +10,8 @@ def main():
         raise SystemExit(f"Usage: {sys.argv[0]} <zip_filename> <file_ext>")
 
     enc_zip = breakzip.EncryptedZipFile(file_name)
-    file_key = breakzip.alias_keys.get(file_ext, None)
-    file_type = breakzip.file_types.get(file_key, None)
-    if not file_type: 
+    file_sig = breakzip.get_file_sig(file_ext)
+    if not file_sig: 
         print(f"Unknown file extension/type: {file_ext} ")
         sys.exit(1)
 
@@ -21,7 +20,7 @@ def main():
         print(f"Couldn't find requested file type in archive")
         sys.exit(1)
 
-    password = breakzip.find_password(enc_zip, file_type, info)
+    password = breakzip.find_password(enc_zip, file_sig, info)
     if password:
         print(f"Found it! -> {password}")
     else:

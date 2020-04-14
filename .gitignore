@@ -1,5 +1,8 @@
 *.txt
 *.7z
+.vscode/
+break_venv/
+wordlist
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -10,6 +13,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.python-version
 build/
 develop-eggs/
 dist/

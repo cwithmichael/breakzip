@@ -14,13 +14,18 @@ alias_keys = {
         'xml': 5,
 }
 
-file_types = { 
+file_sigs = { 
         1: b'PK\x03\x04', 
         2: b'\x30\x26\xb2',
         3: b'\xff\xd8',
         4: b'\x89\x50\x4e\x47\x0d\x0a\x1a\x0a',
         5: b'\x3c\x3f\x78\x6d\x6c\x20',
 }
+
+def get_file_sig(file_ext):
+    file_key = alias_keys.get(file_ext, None)
+    file_type = file_sigs.get(file_key, None)
+    return file_type
 
 class EncryptedZipFile(ZipFile):
     def __init__(self, zip_name):
