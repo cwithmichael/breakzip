@@ -10,7 +10,7 @@ def main():
         raise SystemExit(f"Usage: {sys.argv[0]} <zip_filename> <file_ext>")
 
     enc_zip = breakzip.EncryptedZipFile(file_name)
-    file_sig = breakzip.get_file_sig(file_ext)
+    file_sig = breakzip.FileSignature().get_file_sig(file_ext)
     if not file_sig: 
         print(f"Unknown file extension/type: {file_ext} ")
         sys.exit(1)
