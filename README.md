@@ -44,5 +44,7 @@ Found it! -> fun
 ```
 
 ### Important Notes
-Supports PKZip/Zip 2.0 Encryption _only_
-Only a limited number of file types are supported at the moment
+Supports PKZip/ZipCrypto Encryption _only_
+Only a limited number of file types are supported at the moment:
+zip, wmv/asf/wma, jpg, png, xml
+But it's pretty easy to extend support
