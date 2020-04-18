@@ -45,6 +45,7 @@ Found it! -> fun
 
 ### Important Notes
 Supports PKZip/ZipCrypto Encryption _only_
-Only a limited number of file types are supported at the moment:
-zip, wmv/asf/wma, jpg, png, xml
-But it's pretty easy to extend support
+
+Only a limited number of file types are supported at the moment: zip, wmv/asf/wma, jpg, png, xml
+
+But it's pretty easy to extend support for various file types.
