@@ -12,12 +12,14 @@ https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.open
 
 ### Installation Instructions
 Create a virtualenv and activate it
+
 `python3 -m venv break_venv`
 
 `source break_venv/bin/activate`
 
-Run pip install
-`pip install .`
+Run install
+
+`python setup.py install`
 
 If you want to run the tests, then you'll have to install `pytest`
 
