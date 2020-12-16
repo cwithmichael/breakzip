@@ -10,13 +10,13 @@ def main():
     except IndexError:
         raise SystemExit(f"Usage: {sys.argv[0]} <zip_filename> <file_ext>")
 
-    enc_zip = breakzip.ZipFile(file_name)
+    enc_zip = ZipFile(file_name)
     file_sig = breakzip.FileSignature().get_file_sig(file_ext)
     if not file_sig: 
         print(f"Unknown file extension/type: {file_ext} ")
         sys.exit(1)
 
-    info = enc_zip.get_info(file_ext)
+    info = breakzip.get_info(enc_zip, file_ext)
     if not info:
         print(f"Couldn't find requested file type in archive")
         sys.exit(1)
