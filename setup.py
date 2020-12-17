@@ -7,7 +7,7 @@ setup(name='breakzip',
         author_email='cwithmichael@gmail.com',
         license='MIT',
         packages=find_packages(),
-        tests_require=['pytest'],
+        tests_require=['pytest', 'pytest-mock'],
         entry_points = {
             'console_scripts': ['breakzip=breakzip.command_line:main'],
         },
