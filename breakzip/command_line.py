@@ -3,6 +3,7 @@ import sys
 from zipfile import ZipFile
 from . import breakzip
 
+
 def main():
     try:
         file_name = sys.argv[1]
@@ -12,7 +13,7 @@ def main():
 
     enc_zip = ZipFile(file_name)
     file_sig = breakzip.FileSignature().get_file_sig(file_ext)
-    if not file_sig: 
+    if not file_sig:
         print(f"Unknown file extension/type: {file_ext} ")
         sys.exit(1)
 
@@ -27,5 +28,6 @@ def main():
     else:
         print("Password not found")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
