@@ -15,15 +15,21 @@ Create a virtualenv and activate it
 
 `python3 -m venv break_venv`
 
-`source break_venv/bin/activate`
+`source break_venv/bin/activate` 
 
 Run install
 
 `python setup.py install`
 
+
+### Running Tests
+
 If you want to run the tests, then you'll have to install `pytest`
 
-`pip install pytest`
+`pip install -e ".[testing]"`
+
+`pytest`
+
 
 ### Usage
 `breakzip <zipfile_name> <known_file_extension>`
