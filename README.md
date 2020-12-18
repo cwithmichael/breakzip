@@ -11,7 +11,7 @@ More info about Python's ZipFile lib can be found here:
 https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.open
 
 ### Installation Instructions
-Create a virtualenv and activate it
+Create a virtualenv and activate it (Requires Python >= 3.8.2)
 
 `python3 -m venv break_venv`
 
