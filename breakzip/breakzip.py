@@ -59,7 +59,6 @@ def get_info(enc_zip, file_ext):
     for info in enc_zip.infolist():
         if file_ext in info.filename:
             return info
-    return None
 
 
 def find_password(enc_zip, file_sig, info, pw_source=sys.stdin):
@@ -101,4 +100,3 @@ def find_password(enc_zip, file_sig, info, pw_source=sys.stdin):
             raise
     if found_it:
         return guess_pwd
-    return None
