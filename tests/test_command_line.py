@@ -1,8 +1,6 @@
 from breakzip import command_line
-import unittest
 import pytest
 import os
-from unittest.mock import Mock
 
 
 @pytest.fixture
@@ -11,11 +9,11 @@ def enc_zip(rootdir):
     test_zip = os.path.join(rootdir, "cats.zip")
     return test_zip
 
-
 def test_reading_file(enc_zip, mocker):
     mocker.patch.object(command_line.sys, "argv")
     mocker.patch.object(command_line.breakzip, "get_info")
     mocker.patch.object(command_line.breakzip, "find_password")
+    mocker.patch.object(command_line.db, "find_signature")
     command_line.sys.argv = ["", enc_zip, "jpg"]
     command_line.main()
     assert command_line.breakzip.get_info.called_once()
