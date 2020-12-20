@@ -49,7 +49,6 @@ def init_db(conn):
             INSERT INTO file_extension(extension, file_signature_id) VALUES("xml", 5)''')
     except sqlite3.IntegrityError as e:
         logging.warning(f"Rows already existed: {e}")
-        pass
     except (Error, OperationalError) as e:
         logging.error(f'Something went wrong initializing DB. Rolling back: {e}')
         conn.rollback()
@@ -65,6 +64,5 @@ def find_signature(conn, file_ext):
             WHERE extension = ?''', (file_ext,),).fetchall()
     except (Error, OperationalError) as e:
         logging.error(f'Something went wrong with the query: {e}')
-        pass
     if rows and len(rows) >= 1:
         return rows[0][0]
