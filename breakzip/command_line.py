@@ -29,10 +29,9 @@ def main():
         db.init_db(conn)
     except:
         print("Something went wrong initializing the database. Check the logs for more info.")
-        sys.exit(1)
-    finally:
         conn.close()
- 
+        sys.exit(1)
+
     # Fetch file signature
     try:
         file_sig = db.find_signature(conn, file_ext)
