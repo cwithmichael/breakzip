@@ -14,23 +14,26 @@ def main():
         "file_ext", help="Known file extension in the zip file. i.e. jpg"
     )
     args = parser.parse_args()
+
     file_name = args.file_name
     try:
         open(file_name, mode="r")
     except:
         print(f"Unable to open zip file: {file_name}")
         sys.exit(1)
+
     file_ext = args.file_ext
-    enc_zip = ZipFile(file_name)
     file_sig = breakzip.get_file_sig(file_ext)
     if not file_sig:
         print(f"Unknown file extension/type: {file_ext} ")
         sys.exit(1)
 
+    enc_zip = ZipFile(file_name)
     info = breakzip.get_info(enc_zip, file_ext)
     if not info:
         print(f"Couldn't find requested file type in archive")
         sys.exit(1)
+
     print("Enter password: ")
     password = breakzip.find_password(enc_zip, file_sig, info)
     if password:
