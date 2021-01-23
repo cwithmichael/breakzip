@@ -6,43 +6,39 @@ The user provides the file extension/type of a known file in the archive.
 """
 import sys
 
+alias_keys = {
+    "pkzip": 1,
+    "zip": 1,
+    "asf": 2,
+    "wmv": 2,
+    "wma": 2,
+    "jpg": 3,
+    "jpeg": 3,
+    "png": 4,
+    "xml": 5,
+}
 
-class FileSignature(object):
-    """Handles storage and retrieval of the known file signatures."""
+file_sigs = {
+    1: b"PK\x03\x04",
+    2: b"\x30\x26\xb2",
+    3: b"\xff\xd8",
+    4: b"\x89\x50\x4e\x47\x0d\x0a\x1a\x0a",
+    5: b"\x3c\x3f\x78\x6d\x6c\x20",
+}
 
-    def __init__(self):
-        self.alias_keys = {
-            "pkzip": 1,
-            "zip": 1,
-            "asf": 2,
-            "wmv": 2,
-            "wma": 2,
-            "jpg": 3,
-            "jpeg": 3,
-            "png": 4,
-            "xml": 5,
-        }
 
-        self.file_sigs = {
-            1: b"PK\x03\x04",
-            2: b"\x30\x26\xb2",
-            3: b"\xff\xd8",
-            4: b"\x89\x50\x4e\x47\x0d\x0a\x1a\x0a",
-            5: b"\x3c\x3f\x78\x6d\x6c\x20",
-        }
+def get_file_sig(file_ext):
+    """Gets the file singature for a given file extension
 
-    def get_file_sig(self, file_ext):
-        """Gets the file singature for a given file extension
+    Args:
+        file_ext: File extension of known file in archive
 
-        Args:
-            file_ext: File extension of known file in archive
-
-        Returns:
-            The file signature of the given file extension/type
-        """
-        file_key = self.alias_keys.get(file_ext, None)
-        file_sig = self.file_sigs.get(file_key, None)
-        return file_sig
+    Returns:
+        The file signature of the given file extension/type
+    """
+    file_key = alias_keys.get(file_ext, None)
+    file_sig = file_sigs.get(file_key, None)
+    return file_sig
 
 
 def get_info(enc_zip, file_ext):

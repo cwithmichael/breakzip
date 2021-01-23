@@ -22,7 +22,7 @@ def main():
         sys.exit(1)
     file_ext = args.file_ext
     enc_zip = ZipFile(file_name)
-    file_sig = breakzip.FileSignature().get_file_sig(file_ext)
+    file_sig = breakzip.get_file_sig(file_ext)
     if not file_sig:
         print(f"Unknown file extension/type: {file_ext} ")
         sys.exit(1)
