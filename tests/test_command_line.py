@@ -25,7 +25,7 @@ def test_reading_file(enc_zip, mocker):
 def test_reading_file_not_found(enc_zip, mocker):
     mocker.patch.object(command_line.sys, "argv")
     command_line.sys.argv = ["", "", "jpg"]
-    with pytest.raises(FileNotFoundError):
+    with pytest.raises(SystemExit):
         command_line.main()
 
 
@@ -41,4 +41,4 @@ def test_insufficient_input(enc_zip, mocker):
     command_line.sys.argv = ["", ""]
     with pytest.raises(SystemExit) as e:
         command_line.main()
-    assert "Usage" in str(e.value)
+    assert e.value.code == 2
