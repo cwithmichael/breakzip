@@ -10,12 +10,34 @@ This program hopes to minimize false positives. It works by actually checking to
 More info about Python's ZipFile lib can be found here:
 https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.open
 
-### Installation Instructions
-Create a virtualenv and activate it (Requires Python >= 3.8.2)
+### Requirements
+Python >= 3.9
 
-`python3 -m venv break_venv`
+### Installation Instructions (Recommended)
+Make sure you have [Pipenv installed](https://pipenv.pypa.io/en/latest/#install-pipenv-today)
 
-`source break_venv/bin/activate` 
+Install the requirements and start a pipenv shell
+
+`pipenv install` 
+
+`pipenv shell`
+
+
+### Running Tests
+
+If you want to run the tests, then you'll have to install `pytest`
+
+`pipenv install -e ".[testing]"`
+
+`pytest`
+
+
+### Installation Instructions (Without Pipenv)
+Create a virtualenv and activate it 
+
+`python3 -m venv venv`
+
+`source venv/bin/activate` 
 
 Run install
 

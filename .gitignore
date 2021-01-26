@@ -1,7 +1,7 @@
 *.txt
 *.7z
 .vscode/
-break_venv/
+venv/
 wordlist
 # Byte-compiled / optimized / DLL files
 __pycache__/
