@@ -1,6 +1,6 @@
 # BreakZip
 
-[![Build Status](https://app.travis-ci.com/cwithmichael/breakzip.svg?branch=master)](https://app.travis-ci.com/cwithmichael/breakzip)
+[![GitHub Actions](https://github.com/cwithmichael/breakzip/actions/workflows/github-actions.yml/badge.svg)](https://github.com/cwithmichael/breakzip/actions/workflows/github-actions.yml)
 
 ## Motivation
 
