@@ -1,8 +1,6 @@
 from breakzip import command_line
-import unittest
 import pytest
 import os
-from unittest.mock import Mock
 
 
 @pytest.fixture
@@ -22,7 +20,7 @@ def test_reading_file(enc_zip, mocker):
     assert command_line.breakzip.find_password.called_once()
 
 
-def test_reading_file_not_found(enc_zip, mocker):
+def test_reading_file_not_found(mocker):
     mocker.patch.object(command_line.sys, "argv")
     command_line.sys.argv = ["", "", "jpg"]
     with pytest.raises(SystemExit):
@@ -36,7 +34,7 @@ def test_reading_ext_not_found(enc_zip, mocker):
         command_line.main()
 
 
-def test_insufficient_input(enc_zip, mocker):
+def test_insufficient_input(mocker):
     mocker.patch.object(command_line.sys, "argv")
     command_line.sys.argv = ["", ""]
     with pytest.raises(SystemExit) as e:

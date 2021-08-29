@@ -40,4 +40,4 @@ def test_find_password_incorrect_pwd(enc_zip):
 def test_get_file_sig():
     file_ext = "asf"
     file_sig = get_file_sig(file_ext)
-    assert file_sig == b"\x30\x26\xb2"
+    assert file_sig == bytes([0x30, 0x26, 0xB2])
