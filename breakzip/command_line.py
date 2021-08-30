@@ -13,6 +13,12 @@ def main():
     parser.add_argument(
         "file_ext", help="Known file extension in the zip file. i.e. jpg"
     )
+    parser.add_argument(
+        "-i",
+        "--interactive_mode",
+        action="store_true",
+        help="Manually type passwords on the command line",
+    )
     args = parser.parse_args()
 
     file_name = args.file_name
@@ -34,12 +40,25 @@ def main():
         print(f"Couldn't find requested file type in archive")
         sys.exit(1)
 
-    print("Enter password: ")
-    password = breakzip.find_password(enc_zip, file_sig, info)
-    if password:
-        print(f"Found it! -> {password}")
+    # Start a manual session if interactive_mode is set
+    if args.interactive_mode:
+        while True:
+            guess = input("Enter password: ")
+            password = breakzip.find_password(
+                enc_zip, file_sig, info, pw_source=[guess]
+            )
+            if password:
+                print(f"Found it! -> {password}")
+                sys.exit(0)
+            else:
+                print("Incorrect Password. Try again.")
+    # Otherwise expect the passwords to be piped in
     else:
-        print("Password not found")
+        password = breakzip.find_password(enc_zip, file_sig, info)
+        if password:
+            print(f"Found it! -> {password}")
+        else:
+            print("Password not found")
 
 
 if __name__ == "__main__":
